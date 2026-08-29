@@ -95,7 +95,7 @@ export function homePage() {
         <a class="text-link" href="/our-story">Lees ons verhaal <span aria-hidden="true">↗</span></a>
       </div>
       <figure class="intro-photo reveal">
-        <img src="${photo('portrait-1')}" srcset="${photo('portrait-1-sm')} 720w, ${photo('portrait-1')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Analoge foto uit de keuken van Made's Warung" width="1280" height="1930" loading="lazy" />
+        <img src="${photo('portrait-1')}" srcset="${photo('portrait-1-sm')} 720w, ${photo('portrait-1')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Analoge foto van de gevel van Made's Warung" width="1280" height="1930" loading="lazy" />
       </figure>
     </section>
 
@@ -145,7 +145,7 @@ export function homePage() {
     </section>
 
     <section class="catering-teaser section-pad">
-      <div class="catering-image reveal"><img src="${photo('portrait-3')}" srcset="${photo('portrait-3-sm')} 720w, ${photo('portrait-3')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Analoge foto bij Made's Warung" width="1280" height="1930" loading="lazy" /></div>
+      <div class="catering-image reveal"><img src="${photo('portrait-3')}" srcset="${photo('portrait-3-sm')} 720w, ${photo('portrait-3')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Medewerker schept verse gerechten op bij Made's Warung" width="1280" height="1930" loading="lazy" /></div>
       <div class="catering-copy reveal">
         <p class="section-label">Voor groepen vanaf 20 personen</p>
         <h2>De warung bij jou op tafel.</h2>
@@ -164,7 +164,7 @@ export function homePage() {
         <div><span>Openingstijden</span><p>Woensdag t/m maandag<br>12:00 - 20:00</p></div>
         <div><span>Bestellen</span><a href="tel:+31203704231">020 370 42 31</a></div>
       </div>
-      <div class="visit-photo reveal"><img src="${photo('wide-kitchen')}" srcset="${photo('wide-kitchen-sm')} 860w, ${photo('wide-kitchen')} 1800w" sizes="100vw" alt="Analoge foto van Made's Warung Amsterdam" width="1800" height="1194" loading="lazy" /></div>
+      <div class="visit-photo reveal"><img src="${photo('wide-kitchen')}" srcset="${photo('wide-kitchen-sm')} 860w, ${photo('wide-kitchen')} 1800w" sizes="100vw" alt="Gerechten worden opgeschept bij Made's Warung" width="1800" height="1194" loading="lazy" /></div>
     </section>
   `, 'home-page')
 }
@@ -173,7 +173,7 @@ export function menuPage() {
   return shell('/menu', `
     <section class="page-hero menu-hero">
       <div><p class="section-label">Dagelijks vers bereid</p><h1>Ons menu</h1><p>Van Nasi Campur tot Balinese streetfood. Kies aan de toonbank wat bij je past.</p></div>
-      <img src="${photo('portrait-4')}" srcset="${photo('portrait-4-sm')} 720w, ${photo('portrait-4')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Analoge foto uit Made's Warung" width="1280" height="1930" fetchpriority="high" />
+      <img src="${photo('portrait-4')}" srcset="${photo('portrait-4-sm')} 720w, ${photo('portrait-4')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Kom met Indonesisch eten op tafel" width="1280" height="1930" fetchpriority="high" />
     </section>
     <section class="menu-page-content section-pad">
       <nav class="menu-jump" aria-label="Menucategorieën">
@@ -207,7 +207,7 @@ export function storyPage() {
       </div>
       <blockquote><p>“Mensen delen er eten, tafels en verhalen.”</p></blockquote>
       <div class="story-columns reverse">
-        <figure><img src="${photo('portrait-1')}" srcset="${photo('portrait-1-sm')} 720w, ${photo('portrait-1')} 1280w" sizes="(max-width: 760px) 100vw, 45vw" alt="Analoge foto uit de keuken van Made's Warung" width="1280" height="1930" loading="lazy" /></figure>
+        <figure><img src="${photo('portrait-1')}" srcset="${photo('portrait-1-sm')} 720w, ${photo('portrait-1')} 1280w" sizes="(max-width: 760px) 100vw, 45vw" alt="Analoge foto van de gevel van Made's Warung" width="1280" height="1930" loading="lazy" /></figure>
         <div class="story-prose">${storyParagraphs.slice(3).map(p => `<p>${p}</p>`).join('')}<p><strong>Selamat makan.</strong></p></div>
       </div>
     </article>
@@ -218,7 +218,7 @@ export function cateringPage() {
   return shell('/catering', `
     <section class="page-hero catering-page-hero">
       <div><p class="section-label">Vanaf 20 personen</p><h1>Balinees buffet, warm bezorgd.</h1><p>Wij brengen alles in rechauds, bouwen het buffet op en halen de materialen de volgende dag weer op.</p></div>
-      <img src="${photo('portrait-3')}" srcset="${photo('portrait-3-sm')} 720w, ${photo('portrait-3')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Analoge foto bij Made's Warung" width="1280" height="1930" fetchpriority="high" />
+      <img src="${photo('portrait-3')}" srcset="${photo('portrait-3-sm')} 720w, ${photo('portrait-3')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Medewerker schept verse gerechten op bij Made's Warung" width="1280" height="1930" fetchpriority="high" />
     </section>
     <section class="catering-options section-pad">
       <h2>Kies jullie menu.</h2>
@@ -232,7 +232,7 @@ export function contactPage() {
   return shell('/contact', `
     <section class="contact-page section-pad">
       <div class="contact-heading"><p class="section-label">Amsterdam-Zuid</p><h1>Kom langs.</h1><p>Geen reservering nodig. Kies je gerechten aan de toonbank, neem ze mee of eet bij ons.</p></div>
-      <div class="contact-photo"><img src="${photo('wide-kitchen')}" srcset="${photo('wide-kitchen-sm')} 860w, ${photo('wide-kitchen')} 1800w" sizes="100vw" alt="Analoge foto van Made's Warung Amsterdam" width="1800" height="1194" fetchpriority="high" /></div>
+      <div class="contact-photo"><img src="${photo('wide-kitchen')}" srcset="${photo('wide-kitchen-sm')} 860w, ${photo('wide-kitchen')} 1800w" sizes="100vw" alt="Gerechten worden opgeschept bij Made's Warung" width="1800" height="1194" fetchpriority="high" /></div>
       <div class="contact-grid">
         <div><span>Adres</span><a href="https://maps.google.com/?q=Cornelis+Krusemanstraat+3+Amsterdam" target="_blank" rel="noreferrer">Cornelis Krusemanstraat 3<br>1075 NB Amsterdam</a></div>
         <div><span>Open</span><p>Woensdag t/m maandag<br>12:00 - 20:00<br>Dinsdag gesloten</p></div>
@@ -246,7 +246,7 @@ export function jobsPage() {
   return shell('/jobs', `
     <section class="jobs-page section-pad">
       <div class="jobs-copy"><p class="section-label">Join our team</p><h1>Werk mee in onze warung.</h1><p>We zoeken parttimers en fulltimers voor de bediening. Mensen die gastvrij zijn, graag leren en hun ideeën durven delen.</p><ul><li>Passend salaris</li><li>Flexibele werkuren</li><li>Een klein en betrokken familieteam</li><li>Een frisse werkomgeving</li></ul><a class="button button-light" href="mailto:madeswarungamsterdam@gmail.com?subject=Sollicitatie Made's Warung">Solliciteer per e-mail</a></div>
-      <div class="jobs-image"><img src="${photo('portrait-2')}" srcset="${photo('portrait-2-sm')} 720w, ${photo('portrait-2')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Analoge foto bij Made's Warung" width="1280" height="1930" fetchpriority="high" /></div>
+      <div class="jobs-image"><img src="${photo('portrait-5')}" srcset="${photo('portrait-5-sm')} 720w, ${photo('portrait-5')} 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Twee mensen bij de ingang van Made's Warung" width="1280" height="1930" fetchpriority="high" /></div>
     </section>
   `, 'inner-page')
 }
