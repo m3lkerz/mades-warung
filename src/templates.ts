@@ -1,4 +1,4 @@
-import { cateringMenus, menuSections, storyParagraphs } from './data'
+import { cateringDesserts, cateringMenus, menuSections, storyParagraphs } from './data'
 
 const B = import.meta.env.BASE_URL.replace(/\/$/, '')
 
@@ -98,15 +98,16 @@ export function homePage() {
   return shell('/', `
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Balinese warung · Amsterdam-Zuid</p>
+        <p class="eyebrow">Authentiek Balinees-Indonesisch · Amsterdam-Zuid</p>
         <h1>Bali, <em>opgeschept</em> in Amsterdam.</h1>
         <p class="hero-lead">Huisgemaakte bumbu's, verse ingrediënten en familierecepten uit Kuta. Kies aan de toonbank, eet bij ons of neem mee.</p>
+        <ul class="service-tags" aria-label="Services"><li>Take-away</li><li>Dine-in</li><li>Delivery</li><li>Catering</li></ul>
         <div class="hero-actions">
           <a class="btn btn-ink" href="${B}/menu">Bekijk het menu</a>
           <a class="btn btn-line" href="${MAPS}" target="_blank" rel="noreferrer">Route</a>
         </div>
         <dl class="hero-facts">
-          <div><dt>Open</dt><dd>Wo t/m ma<br>12:00–20:00</dd></div>
+          <div><dt>Open</dt><dd>12:00–20:00<br>Dinsdag gesloten</dd></div>
           <div><dt>Adres</dt><dd>Cornelis<br>Krusemanstraat 3</dd></div>
           <div><dt>Bestellen</dt><dd><a href="${TEL}">020 370 42 31</a></dd></div>
         </dl>
@@ -169,7 +170,7 @@ export function homePage() {
         <div class="story-band-copy reveal">
           <p class="eyebrow">Ons verhaal</p>
           <h2>Van een kraampje in Kuta naar de <em>Cornelis Krusemanstraat.</em></h2>
-          <p>Peter reed in 1973 met de auto van Amsterdam naar Bali en ontmoette Made in de warung van haar familie. Kuswati en Bagus brachten die filosofie — eten, tafels en verhalen delen — naar Amsterdam.</p>
+          <p>Peter reed in 1973 met de auto van Amsterdam naar Bali en ontmoette Made in de warung van haar familie. Inmiddels telt Made's Warung vijf vestigingen op Bali — en met Kuswati en Bagus Sanou één kleine warung in Amsterdam.</p>
           <a class="link-arrow" href="${B}/our-story">Lees het hele verhaal <span aria-hidden="true">→</span></a>
         </div>
         <figure class="story-band-photo reveal">${img({ name: 'duo', alt: "Het team van Made's Warung voor de houten voordeur", sizes: '(max-width: 900px) 100vw, 34vw' })}</figure>
@@ -184,7 +185,7 @@ export function homePage() {
         <a class="btn btn-ink" href="${B}/catering">Bekijk cateringmenu's</a>
       </div>
       <ul class="catering-prices reveal">
-        ${cateringMenus.map(m => `<li><span>${m.title}</span><strong>${m.price.replace(' p.p.', '')}</strong><small>p.p.</small></li>`).join('')}
+        ${cateringMenus.map(m => `<li><span>${m.title}</span><strong>${m.price}</strong><small>p.p., incl. levering</small></li>`).join('')}
       </ul>
     </section>
 
@@ -193,7 +194,7 @@ export function homePage() {
       <div class="visit-copy reveal">
         <p class="eyebrow">Kom langs</p>
         <h2>Loop binnen, kies aan de <em>toonbank.</em></h2>
-        <p>We zijn een kleine afhaalwarung met een paar zitplaatsen. Reserveren hoeft niet — en kan ook niet.</p>
+        <p>Wij zijn een kleinschalig Indonesisch afhaalrestaurant. Omdat we gelimiteerde plekken hebben, nemen we geen reserveringen aan.</p>
         <dl>
           <div><dt>Adres</dt><dd><a href="${MAPS}" target="_blank" rel="noreferrer">Cornelis Krusemanstraat 3, 1075 NB Amsterdam</a></dd></div>
           <div><dt>Open</dt><dd>Woensdag t/m maandag, 12:00–20:00</dd></div>
@@ -248,7 +249,7 @@ export function storyPage() {
         <div class="prose reveal">${storyParagraphs.slice(1, 3).map(p => `<p>${p}</p>`).join('')}</div>
         <figure class="reveal">${img({ name: 'door', alt: "Het team voor de ingang van Made's Warung", sizes: '(max-width: 900px) 100vw, 40vw' })}</figure>
       </div>
-      <blockquote class="reveal"><p>“Mensen delen er eten, tafels en <em>verhalen.</em>”</p></blockquote>
+      <blockquote class="reveal"><p>“Een tafel voor één of twee bestaat daar <em>niet.</em>”</p></blockquote>
       <div class="story-cols reverse">
         <figure class="reveal">${img({ name: 'chef', alt: 'Kok schept gerechten op achter de toonbank', sizes: '(max-width: 900px) 100vw, 40vw' })}</figure>
         <div class="prose reveal">${storyParagraphs.slice(3).map(p => `<p>${p}</p>`).join('')}<p class="sign">Selamat makan.</p></div>
@@ -269,19 +270,23 @@ export function cateringPage() {
       <figure class="page-hero-photo">${img({ name: 'scoop', alt: 'Nasi kuning wordt opgeschept', sizes: '(max-width: 900px) 100vw, 55vw', priority: true })}</figure>
     </section>
     <section class="section">
-      <h2 class="section-title reveal">Kies jullie <em>menu.</em></h2>
+      <h2 class="section-title reveal">Catering <em>menu.</em></h2>
+      <p class="section-sub reveal">Alle prijzen zijn inclusief levering op locatie in chafing dishes.</p>
       <div class="cater-grid">
-        ${cateringMenus.map(m => `<article class="cater-card reveal"><p class="cater-name">${m.title}</p><p class="cater-price">${m.price.replace(' p.p.', '')}<small> p.p.</small></p><p>${m.text}</p></article>`).join('')}
+        ${cateringMenus.map(m => `<article class="cater-card reveal"><p class="cater-name">${m.title}</p><p class="cater-price">${m.price}<small> p.p.</small></p><p>${m.text}</p><p class="cater-extras">${m.extras}</p></article>`).join('')}
+      </div>
+      <div class="cater-dessert reveal">
+        <h3>Toetjes</h3>
+        <ul>${cateringDesserts.map(d => `<li><span>${d.name}</span><strong>${d.price}</strong></li>`).join('')}</ul>
       </div>
       <div class="cater-notes reveal">
-        <h2>Zo werkt het</h2>
-        <ul>
-          <li>Alle prijzen inclusief levering op locatie</li>
-          <li>Warm in rechauds, klaar als lopend buffet</li>
-          <li>Borden en bestek optioneel</li>
-          <li>Betaling vooraf</li>
-        </ul>
-        <a class="btn btn-sun" href="mailto:${MAIL}?subject=Cateringaanvraag">Mail je aanvraag</a>
+        <h2>Meer informatie</h2>
+        <div class="cater-info">
+          <p>Voor groepen vanaf 20 personen verzorgen wij catering op locatie. We brengen alles warm in rechauds en zetten het klaar als lopend buffet — optioneel met borden en bestek. Als het buffet helemaal staat, gaan wij weer weg.</p>
+          <p>We laten kratten achter waarin de borden en het bestek terug kunnen, en halen die de volgende dag op een passend tijdstip weer op. Afwassen is niet nodig.</p>
+          <p>Betaling voor de catering dient in zijn geheel vooraf te zijn voldaan.</p>
+        </div>
+        <div class="cater-cta"><p>Meer vragen?</p><a class="btn btn-sun" href="mailto:${MAIL}?subject=Cateringaanvraag">${MAIL}</a></div>
       </div>
     </section>
   `, 'inner-page')
@@ -297,7 +302,8 @@ export function contactPage() {
         <dl class="contact-list">
           <div><dt>Adres</dt><dd><a href="${MAPS}" target="_blank" rel="noreferrer">Cornelis Krusemanstraat 3<br>1075 NB Amsterdam</a></dd></div>
           <div><dt>Open</dt><dd>Woensdag t/m maandag, 12:00–20:00<br>Dinsdag gesloten</dd></div>
-          <div><dt>Contact</dt><dd><a href="${TEL}">020 370 42 31</a><br><a href="mailto:${MAIL}">${MAIL}</a></dd></div>
+          <div><dt>Contact</dt><dd><a href="${TEL}">(020) 370 42 31</a><br><a href="mailto:${MAIL}">${MAIL}</a></dd></div>
+          <div><dt>Volg ons</dt><dd><a href="https://www.instagram.com/madeswarungamsterdam/" target="_blank" rel="noreferrer">@madeswarungamsterdam</a></dd></div>
         </dl>
       </div>
       <figure class="page-hero-photo">${img({ name: 'facade', alt: "Gevel van Made's Warung met planten en rood uithangbord", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
@@ -311,9 +317,12 @@ export function jobsPage() {
       <div class="page-hero-copy">
         <p class="eyebrow">Join our team</p>
         <h1>Werk mee in <em>onze</em> warung.</h1>
-        <p>We zoeken parttimers en fulltimers voor de bediening. Mensen die gastvrij zijn, graag leren en hun ideeën durven delen.</p>
-        <ul class="ticks"><li>Passend salaris</li><li>Flexibele werkuren</li><li>Een klein en betrokken familieteam</li><li>Een frisse werkomgeving</li></ul>
-        <a class="btn btn-ink" href="mailto:${MAIL}?subject=Sollicitatie Made's Warung">Solliciteer per e-mail</a>
+        <p>Wij zijn op zoek naar part- en fulltimers voor in de bediening. Ben jij gepassioneerd, leergierig en op zoek naar een leuke en leerzame (bij)baan? Dan zoeken wij jou!</p>
+        <p>We zijn een klein familiebedrijf en zoeken mensen die hun input willen delen nu ons restaurant steeds drukker wordt. Enige affiniteit met de Indonesische keuken is een pré.</p>
+        <h2 class="jobs-sub">Wij bieden</h2>
+        <ul class="ticks"><li>Passend salaris</li><li>Flexibele werkuren</li><li>Een leuke, frisse werkomgeving</li></ul>
+        <a class="btn btn-ink" href="mailto:${MAIL}?subject=Sollicitatie Made's Warung">Stuur ons een berichtje</a>
+        <p class="jobs-note">Vermeld je naam en iets over jezelf — we nemen zo snel mogelijk contact met je op.</p>
       </div>
       <figure class="page-hero-photo">${img({ name: 'duo', alt: "Twee teamleden bij de ingang van Made's Warung", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
     </section>

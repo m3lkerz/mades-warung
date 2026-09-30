@@ -23,7 +23,7 @@ const routes: Record<string, () => string> = {
 const pageMeta: Record<string, { title: string; description: string }> = {
   '/': {
     title: "Made's Warung Amsterdam | Authentiek Balinees eten",
-    description: "Authentiek Balinees-Indonesisch eten in Amsterdam-Zuid. Huisgemaakte bumbu's, verse ingrediënten, take-away, dine-in en catering.",
+    description: "Authentiek Balinees-Indonesisch eten in Amsterdam-Zuid. Huisgemaakte bumbu's, verse ingrediënten, take-away, dine-in, delivery en catering.",
   },
   '/menu': {
     title: "Menu | Made's Warung Amsterdam",

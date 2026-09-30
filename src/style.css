@@ -164,6 +164,8 @@ p { text-wrap: pretty; }
 }
 .hero h1 { font-size: clamp(52px, 7.4vw, 116px); margin-bottom: 28px; }
 .hero-lead { font-size: clamp(18px, 1.5vw, 21px); color: var(--ink-soft); max-width: 36ch; margin-bottom: 36px; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 32px; }
+.service-tags li { font-size: 13px; font-weight: 600; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: rgb(255 255 255 / 0.35); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
 .hero-facts { display: grid; grid-template-columns: repeat(3, auto); gap: 32px; justify-content: start; border-top: 1px solid var(--line); padding-top: 22px; }
 .hero-facts dt { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
@@ -339,9 +341,22 @@ p { text-wrap: pretty; }
 .cater-price { font-family: var(--display); font-size: 46px; line-height: 1; }
 .cater-price small { font-family: var(--body); font-size: 14px; color: var(--ink-soft); }
 .cater-card p:last-child { color: var(--ink-soft); font-size: 15px; }
-.cater-notes { background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 32px; align-items: center; }
+.section-sub { color: var(--ink-soft); font-style: italic; margin: -24px 0 36px; }
+.cater-extras { font-size: 14px !important; color: var(--terracotta) !important; font-weight: 600; }
+.cater-dessert { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 0; margin: -32px 0 48px; }
+.cater-dessert h3 { font-size: 28px; }
+.cater-dessert ul { display: flex; gap: 32px; flex-wrap: wrap; }
+.cater-dessert li { display: flex; gap: 12px; align-items: baseline; }
+.cater-dessert strong { font-family: var(--display); font-weight: 500; }
+.cater-info p { margin-bottom: 12px; }
+.cater-cta p { margin-bottom: 12px; font-family: var(--display); font-size: 24px; }
+.cater-cta .btn { font-size: 14px; }
+.jobs-sub { font-size: 28px; margin: 8px 0 14px; }
+.jobs-note { font-size: 14px; color: var(--ink-soft); margin-top: 14px; }
+.page-hero-copy > p + p { margin-top: -12px; }
+.cater-notes { background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: 0.7fr 1.6fr 1fr; gap: 40px; align-items: start; }
 .cater-notes h2 { font-size: 40px; }
-.cater-notes ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; color: rgb(245 237 224 / 0.82); }
+.cater-info { color: rgb(245 237 224 / 0.82); }
 .cater-notes li::before, .ticks li::before { content: '✦'; color: var(--sun); margin-right: 10px; font-size: 12px; }
 
 .contact-list div { padding: 16px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 90px 1fr; gap: 16px; }
@@ -417,7 +432,6 @@ p { text-wrap: pretty; }
   .catering-prices { grid-template-columns: 1fr 1fr; }
   .catering-prices li { padding: 20px; }
   .cater-grid { grid-template-columns: 1fr; }
-  .cater-notes ul { grid-template-columns: 1fr; }
   .menu-cat header { flex-direction: column; align-items: start; }
   .menu-cat header p { text-align: left; }
   .footer-grid { grid-template-columns: 1fr; }
