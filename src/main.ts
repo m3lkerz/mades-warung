@@ -47,7 +47,10 @@ const pageMeta: Record<string, { title: string; description: string }> = {
   },
 }
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 function normalizePath(path: string) {
+  if (BASE && path.startsWith(BASE)) path = path.slice(BASE.length) || '/'
   if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1)
   return path
 }
@@ -142,7 +145,8 @@ document.addEventListener('click', event => {
   if (!link) return
   const url = new URL(link.href, window.location.href)
   if (url.origin !== window.location.origin || link.target === '_blank' || url.hash) return
-  if (!(url.pathname in routes)) return
+  const target = normalizePath(url.pathname)
+  if (!(target in routes)) return
   event.preventDefault()
   window.history.pushState({}, '', url.pathname)
   render()

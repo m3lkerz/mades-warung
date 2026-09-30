@@ -5,11 +5,13 @@ import { join } from 'node:path'
 
 const routes = ['/', '/menu', '/our-story', '/contact', '/catering', '/jobs']
 const port = 4190
-const baseURL = `http://127.0.0.1:${port}`
+const BASE = (process.env.BASE_PATH || '/').replace(/\/$/, '')
+const baseURL = `http://127.0.0.1:${port}${BASE}`
 const executablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 const server = await preview({
   preview: { host: '127.0.0.1', port, strictPort: true },
+  base: process.env.BASE_PATH || '/',
   logLevel: 'silent',
 })
 const browser = await chromium.launch({ headless: true, executablePath })

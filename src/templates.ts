@@ -1,5 +1,7 @@
 import { cateringMenus, menuSections, storyParagraphs } from './data'
 
+const B = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 const MAPS = 'https://maps.google.com/?q=Cornelis+Krusemanstraat+3+Amsterdam'
 const TEL = 'tel:+31203704231'
 const MAIL = 'madeswarungamsterdam@gmail.com'
@@ -12,7 +14,7 @@ const landscapes = new Set(['buffet', 'scoop', 'counter', 'juice', 'orchid'])
 
 function img({ name, alt, sizes = '(max-width: 760px) 100vw, 50vw', priority = false, cls = '' }: Img) {
   const d = landscapes.has(name) ? LANDSCAPE : PORTRAIT
-  return `<img${cls ? ` class="${cls}"` : ''} src="/assets/photos/${name}.webp" srcset="/assets/photos/${name}-sm.webp 800w, /assets/photos/${name}.webp 1600w" sizes="${sizes}" alt="${alt}" width="${d.w}" height="${d.h}" ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" />`
+  return `<img${cls ? ` class="${cls}"` : ''} src="${B}/assets/photos/${name}.webp" srcset="${B}/assets/photos/${name}-sm.webp 800w, ${B}/assets/photos/${name}.webp 1600w" sizes="${sizes}" alt="${alt}" width="${d.w}" height="${d.h}" ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" />`
 }
 
 const navItems = [
@@ -24,20 +26,20 @@ const navItems = [
 ]
 
 const navLinks = (active: string) =>
-  navItems.map(([label, href]) => `<a href="${href}" ${active === href ? 'aria-current="page"' : ''}>${label}</a>`).join('')
+  navItems.map(([label, href]) => `<a href="${B}${href}" ${active === href ? 'aria-current="page"' : ''}>${label}</a>`).join('')
 
 export function header(activePath: string) {
   return `
     <a class="skip-link" href="#main">Naar de inhoud</a>
     <header class="site-header" data-header>
-      <a class="brand" href="/" aria-label="Made's Warung Amsterdam, home">
-        <img src="/assets/mades-logo.png" width="108" height="74" alt="Made's Warung Amsterdam" />
+      <a class="brand" href="${B}/" aria-label="Made's Warung Amsterdam, home">
+        <img src="${B}/assets/mades-logo.png" width="108" height="74" alt="Made's Warung Amsterdam" />
       </a>
       <nav class="desktop-nav" aria-label="Hoofdnavigatie">${navLinks(activePath)}</nav>
       <p class="open-status"><span class="dot" aria-hidden="true"></span><span data-open-text>Wo t/m ma · 12:00–20:00</span></p>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobiele navigatie" hidden>
-        <a href="/" ${activePath === '/' ? 'aria-current="page"' : ''}>Home</a>
+        <a href="${B}/" ${activePath === '/' ? 'aria-current="page"' : ''}>Home</a>
         ${navLinks(activePath)}
         <p>Woensdag t/m maandag, 12:00–20:00<br>Dinsdag gesloten</p>
       </nav>
@@ -69,7 +71,7 @@ export function footer() {
         </div>
         <div>
           <h2>Pagina's</h2>
-          ${navItems.map(([l, h]) => `<a href="${h}">${l}</a>`).join('')}
+          ${navItems.map(([l, h]) => `<a href="${B}${h}">${l}</a>`).join('')}
         </div>
       </div>
       <div class="footer-bottom">
@@ -100,7 +102,7 @@ export function homePage() {
         <h1>Bali, <em>opgeschept</em> in Amsterdam.</h1>
         <p class="hero-lead">Huisgemaakte bumbu's, verse ingrediënten en familierecepten uit Kuta. Kies aan de toonbank, eet bij ons of neem mee.</p>
         <div class="hero-actions">
-          <a class="btn btn-ink" href="/menu">Bekijk het menu</a>
+          <a class="btn btn-ink" href="${B}/menu">Bekijk het menu</a>
           <a class="btn btn-line" href="${MAPS}" target="_blank" rel="noreferrer">Route</a>
         </div>
         <dl class="hero-facts">
@@ -142,7 +144,7 @@ export function homePage() {
           <li class="reveal"><div><h3>Gado Gado</h3><p>Vegetarische groenteschotel met huisgemaakte pindasaus.</p></div><strong>€ 10,50</strong></li>
           <li class="reveal"><div><h3>Soto Ayam</h3><p>Kippensoep met mihoen, taugé en ei.</p></div><strong>€ 9,50</strong></li>
         </ul>
-        <a class="link-arrow reveal" href="/menu">Volledig menu <span aria-hidden="true">→</span></a>
+        <a class="link-arrow reveal" href="${B}/menu">Volledig menu <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -168,7 +170,7 @@ export function homePage() {
           <p class="eyebrow">Ons verhaal</p>
           <h2>Van een kraampje in Kuta naar de <em>Cornelis Krusemanstraat.</em></h2>
           <p>Peter reed in 1973 met de auto van Amsterdam naar Bali en ontmoette Made in de warung van haar familie. Kuswati en Bagus brachten die filosofie — eten, tafels en verhalen delen — naar Amsterdam.</p>
-          <a class="link-arrow" href="/our-story">Lees het hele verhaal <span aria-hidden="true">→</span></a>
+          <a class="link-arrow" href="${B}/our-story">Lees het hele verhaal <span aria-hidden="true">→</span></a>
         </div>
         <figure class="story-band-photo reveal">${img({ name: 'duo', alt: "Het team van Made's Warung voor de houten voordeur", sizes: '(max-width: 900px) 100vw, 34vw' })}</figure>
       </div>
@@ -179,7 +181,7 @@ export function homePage() {
         <p class="eyebrow">Catering vanaf 20 personen</p>
         <h2>De warung <em>bij jou</em> op tafel.</h2>
         <p>Warm geleverd in rechauds, opgebouwd als lopend buffet en de volgende dag weer opgehaald.</p>
-        <a class="btn btn-ink" href="/catering">Bekijk cateringmenu's</a>
+        <a class="btn btn-ink" href="${B}/catering">Bekijk cateringmenu's</a>
       </div>
       <ul class="catering-prices reveal">
         ${cateringMenus.map(m => `<li><span>${m.title}</span><strong>${m.price.replace(' p.p.', '')}</strong><small>p.p.</small></li>`).join('')}
@@ -319,5 +321,5 @@ export function jobsPage() {
 }
 
 export function notFoundPage() {
-  return shell('', `<section class="not-found section"><p class="eyebrow">404</p><h1>Deze tafel is <em>leeg.</em></h1><p>De pagina die je zoekt bestaat niet.</p><a class="btn btn-ink" href="/">Terug naar home</a></section>`, 'inner-page')
+  return shell('', `<section class="not-found section"><p class="eyebrow">404</p><h1>Deze tafel is <em>leeg.</em></h1><p>De pagina die je zoekt bestaat niet.</p><a class="btn btn-ink" href="${B}/">Terug naar home</a></section>`, 'inner-page')
 }
