@@ -10,7 +10,7 @@ type Img = { name: string; alt: string; sizes?: string; priority?: boolean; cls?
 
 const PORTRAIT = { w: 1600, h: 2413 }
 const LANDSCAPE = { w: 1600, h: 1061 }
-const landscapes = new Set(['buffet', 'scoop', 'counter', 'juice', 'orchid', 'terrace', 'terrace-wide', 'interior', 'street', 'bainmarie-wide', 'table', 'tea', 'interior-view', 'terrace-sign', 'family-counter', 'counter-interior'])
+const landscapes = new Set(['table-spread', 'buffet', 'scoop', 'counter', 'juice', 'orchid', 'terrace', 'terrace-wide', 'interior', 'street', 'bainmarie-wide', 'table', 'tea', 'interior-view', 'terrace-sign', 'family-counter', 'counter-interior'])
 
 function img({ name, alt, sizes = '(max-width: 760px) 100vw, 50vw', priority = false, cls = '' }: Img) {
   const d = landscapes.has(name) ? LANDSCAPE : PORTRAIT
@@ -114,7 +114,7 @@ export function homePage() {
         </dl>
       </div>
       <div class="hero-media">
-        <figure class="hero-main">${img({ name: 'food-hero', alt: "Handen pakken een nasi campur met kroepoek, groenten en sambal", sizes: '(max-width: 900px) 100vw, 42vw', priority: true })}</figure>
+        <figure class="hero-main">${img({ name: 'table-spread', alt: "Tafel vol nasi campur, kroepoek en verse bloemen", sizes: '(max-width: 900px) 100vw, 42vw', priority: true })}</figure>
         <figure class="hero-inset">${img({ name: 'chef', alt: 'Kok schept gerechten op achter de toonbank', sizes: '(max-width: 900px) 45vw, 18vw' })}</figure>
       </div>
     </section>
@@ -135,7 +135,7 @@ export function homePage() {
     </section>
 
     <section class="signatures section">
-      <figure class="sig-photo reveal">${img({ name: 'terrace-guest', alt: 'Gast eet een bord nasi op het zonnige terras', sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
+      <figure class="sig-photo reveal">${img({ name: 'vitrine', alt: "De vitrine met verse Balinese gerechten, saté en tempé", sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
       <div class="sig-list">
         <p class="eyebrow reveal">Begin met de klassiekers</p>
         <h2 class="reveal">Wat je <em>moet</em> proeven.</h2>
@@ -154,14 +154,14 @@ export function homePage() {
       <div class="gallery-head reveal">
         <p class="eyebrow">Binnen bij Made's</p>
         <h2 id="gallery-title">Een klein stukje <em>Kuta</em> in Zuid.</h2>
-        <p>Balinese belettering op het raam, es campur met een bosje bloemen, verse kurkuma-thee en altijd iets dat staat te pruttelen.</p>
+        <p>Balinese belettering op het raam, es campur met een bosje bloemen, een bloeiende bromelia op tafel en altijd iets dat staat te pruttelen.</p>
       </div>
       <div class="gallery-grid">
         <figure class="g1 reveal">${img({ name: 'window-front', alt: "Het raam met Balinees Eten-belettering en een zitje ervoor", sizes: '(max-width: 760px) 50vw, 30vw' })}</figure>
         <figure class="g2 reveal">${img({ name: 'es', alt: "Es campur in een glas met een vaasje bloemen", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
         <figure class="g3 reveal">${img({ name: 'interior-view', alt: "Binnen bij Made's Warung met uitzicht op het terras", sizes: '(max-width: 760px) 100vw, 45vw' })}</figure>
         <figure class="g4 reveal">${img({ name: 'eating', alt: "Gast geniet van een es campur aan tafel", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
-        <figure class="g5 reveal">${img({ name: 'tea', alt: "Krijtbord met verse thee: munt, gember, salie en kurkuma", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
+        <figure class="g5 reveal">${img({ name: 'bromelia', alt: "Roze bromelia op een tafel met Made's Warung-gravure", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
       </div>
     </section>
 
