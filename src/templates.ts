@@ -122,15 +122,6 @@ export function homePage() {
     ${marquee()}
 
     <section class="how section">
-      <div class="how-head reveal">
-        <p class="eyebrow">Zo werkt de warung</p>
-        <h2>Stel je eigen <em>Nasi Campur</em> samen.</h2>
-      </div>
-      <ol class="how-steps">
-        <li class="reveal"><span>01</span><h3>Kies je basis</h3><p>Nasi putih, nasi kuning, nasi goreng of bami goreng.</p></li>
-        <li class="reveal"><span>02</span><h3>Wijs je lauk aan</h3><p>Ayam betutu, rendang, sambal goreng boontjes, tempé — alles vers uit de vitrine.</p></li>
-        <li class="reveal"><span>03</span><h3>Sambal erbij</h3><p>Altijd met sambal goreng telor. Klein € 16,50, speciaal € 19,50.</p></li>
-      </ol>
       <figure class="how-photo reveal">${img({ name: 'bainmarie-color', alt: "Vitrine vol kleurrijke Balinese gerechten", sizes: '100vw' })}</figure>
     </section>
 

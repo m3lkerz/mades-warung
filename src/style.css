@@ -195,7 +195,7 @@ p { text-wrap: pretty; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* How it works */
-.how { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px 64px; }
+.how { display: block; padding-bottom: clamp(56px, 7vw, 96px); }
 .how-head h2 { font-size: clamp(40px, 4.6vw, 68px); }
 .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-self: end; }
 .how-steps li { border-top: 1px solid var(--ink); padding-top: 20px; }
