@@ -78,6 +78,30 @@ function initMobileMenu() {
   })
 }
 
+function initOpenStatus() {
+  const el = document.querySelector<HTMLElement>('.open-status')
+  const text = el?.querySelector<HTMLElement>('[data-open-text]')
+  if (!el || !text) return
+  const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Amsterdam' }))
+  const day = now.getDay() // 2 = dinsdag
+  const mins = now.getHours() * 60 + now.getMinutes()
+  const open = day !== 2 && mins >= 720 && mins < 1200
+  el.classList.toggle('is-open', open)
+  el.classList.toggle('is-closed', !open)
+  if (open) text.textContent = 'Nu open · tot 20:00'
+  else if (day !== 2 && mins < 720) text.textContent = 'Vandaag open vanaf 12:00'
+  else if (day === 1 || day === 2) text.textContent = 'Gesloten · woensdag weer open'
+  else text.textContent = 'Gesloten · morgen vanaf 12:00'
+}
+
+function initHeaderScroll() {
+  const headerEl = document.querySelector<HTMLElement>('[data-header]')
+  if (!headerEl) return
+  const onScroll = () => headerEl.classList.toggle('is-scrolled', window.scrollY > 8)
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+}
+
 function initReveals() {
   const targets = document.querySelectorAll<HTMLElement>('.reveal')
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -107,6 +131,8 @@ function render(options: { scrollToTop?: boolean } = {}) {
   document.body.className = `route-${path === '/' ? 'home' : path.replaceAll('/', '-')}`
   updateMeta(path)
   initMobileMenu()
+  initOpenStatus()
+  initHeaderScroll()
   initReveals()
   if (options.scrollToTop !== false) window.scrollTo({ top: 0, behavior: 'instant' })
 }
@@ -128,6 +154,8 @@ const initialPath = normalizePath(window.location.pathname)
 if (app.dataset.route === initialPath) {
   updateMeta(initialPath)
   initMobileMenu()
+  initOpenStatus()
+  initHeaderScroll()
   initReveals()
 } else {
   render({ scrollToTop: false })
