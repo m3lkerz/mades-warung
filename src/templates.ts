@@ -10,7 +10,7 @@ type Img = { name: string; alt: string; sizes?: string; priority?: boolean; cls?
 
 const PORTRAIT = { w: 1600, h: 2413 }
 const LANDSCAPE = { w: 1600, h: 1061 }
-const landscapes = new Set(['buffet', 'scoop', 'counter', 'juice', 'orchid'])
+const landscapes = new Set(['buffet', 'scoop', 'counter', 'juice', 'orchid', 'terrace', 'terrace-wide', 'interior', 'street'])
 
 function img({ name, alt, sizes = '(max-width: 760px) 100vw, 50vw', priority = false, cls = '' }: Img) {
   const d = landscapes.has(name) ? LANDSCAPE : PORTRAIT
@@ -77,6 +77,7 @@ export function footer() {
       <div class="footer-bottom">
         <span>© Made's Warung Amsterdam</span>
         <span>Geen reserveringen, loop gerust binnen.</span>
+        <span>Foto's: <a href="https://kayadelarambeljephotography.pixieset.com/" target="_blank" rel="noreferrer">Kaya de la Rambelje</a></span>
       </div>
     </footer>
   `
@@ -134,7 +135,7 @@ export function homePage() {
     </section>
 
     <section class="signatures section">
-      <figure class="sig-photo reveal">${img({ name: 'scoop', alt: 'Nasi kuning wordt opgeschept in een bakje', sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
+      <figure class="sig-photo reveal">${img({ name: 'bowl', alt: 'Nasi campur met kip, groenten en kroepoek op het terras', sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
       <div class="sig-list">
         <p class="eyebrow reveal">Begin met de klassiekers</p>
         <h2 class="reveal">Wat je <em>moet</em> proeven.</h2>
@@ -161,6 +162,15 @@ export function homePage() {
         <figure class="g3 reveal">${img({ name: 'juice', alt: 'Verse jamu wordt ingeschonken aan het raam', sizes: '(max-width: 760px) 100vw, 45vw' })}</figure>
         <figure class="g4 reveal">${img({ name: 'guest', alt: 'Gast eet aan tafel bij de toonbank', sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
         <figure class="g5 reveal">${img({ name: 'batik', alt: "Menukaart van Made's Warung op een batikkleed", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
+      </div>
+    </section>
+
+    <section class="terrace-band" aria-labelledby="terrace-title">
+      <figure class="terrace-photo">${img({ name: 'terrace', alt: "Vol terras met rode parasols voor Made's Warung", sizes: '100vw' })}</figure>
+      <div class="terrace-card reveal">
+        <p class="eyebrow">Ons terras</p>
+        <h2 id="terrace-title">Rode parasols, <em>zon</em> en sambal.</h2>
+        <p>Bij mooi weer eet je buiten op ons terras aan de Cornelis Krusemanstraat. Wie het eerst komt, die het eerst maalt.</p>
       </div>
     </section>
 
@@ -217,9 +227,12 @@ export function menuPage() {
       <figure class="page-hero-photo">${img({ name: 'buffet', alt: 'Vitrine met verse Balinese gerechten', sizes: '(max-width: 900px) 100vw, 55vw', priority: true })}</figure>
     </section>
     <section class="menu-layout section">
-      <nav class="menu-jump" aria-label="Menucategorieën">
-        ${menuSections.map((s, i) => `<a href="#menu-${i}">${s.title}</a>`).join('')}
-      </nav>
+      <aside class="menu-side">
+        <nav class="menu-jump" aria-label="Menucategorieën">
+          ${menuSections.map((s, i) => `<a href="#menu-${i}">${s.title}</a>`).join('')}
+        </nav>
+        <figure class="menu-side-photo">${img({ name: 'bowl', alt: 'Nasi campur met kip, groenten en kroepoek', sizes: '220px' })}</figure>
+      </aside>
       <div class="menu-sections">
         ${menuSections.map((s, i) => `
           <section class="menu-cat reveal" id="menu-${i}">
@@ -251,7 +264,7 @@ export function storyPage() {
       </div>
       <blockquote class="reveal"><p>“Een tafel voor één of twee bestaat daar <em>niet.</em>”</p></blockquote>
       <div class="story-cols reverse">
-        <figure class="reveal">${img({ name: 'chef', alt: 'Kok schept gerechten op achter de toonbank', sizes: '(max-width: 900px) 100vw, 40vw' })}</figure>
+        <figure class="reveal">${img({ name: 'team', alt: "Het team van Made's Warung Amsterdam in de deuropening", sizes: '(max-width: 900px) 100vw, 40vw' })}</figure>
         <div class="prose reveal">${storyParagraphs.slice(3).map(p => `<p>${p}</p>`).join('')}<p class="sign">Selamat makan.</p></div>
       </div>
     </article>
@@ -267,7 +280,7 @@ export function cateringPage() {
         <p>Wij brengen alles in rechauds, bouwen het buffet op en halen de materialen de volgende dag weer op.</p>
         <a class="btn btn-ink" href="mailto:${MAIL}?subject=Cateringaanvraag">Vraag catering aan</a>
       </div>
-      <figure class="page-hero-photo">${img({ name: 'scoop', alt: 'Nasi kuning wordt opgeschept', sizes: '(max-width: 900px) 100vw, 55vw', priority: true })}</figure>
+      <figure class="page-hero-photo">${img({ name: 'bainmarie', alt: 'Warme gerechten in de bain-marie, klaar om op te scheppen', sizes: '(max-width: 900px) 100vw, 55vw', priority: true })}</figure>
     </section>
     <section class="section">
       <h2 class="section-title reveal">Catering <em>menu.</em></h2>
@@ -308,6 +321,11 @@ export function contactPage() {
       </div>
       <figure class="page-hero-photo">${img({ name: 'facade', alt: "Gevel van Made's Warung met planten en rood uithangbord", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
     </section>
+    <section class="photo-strip section" aria-label="Sfeer bij Made's Warung">
+      <figure class="reveal">${img({ name: 'interior', alt: "Binnen bij Made's Warung: tafels, vitrine en krijtborden", sizes: '(max-width: 760px) 100vw, 50vw' })}</figure>
+      <figure class="reveal">${img({ name: 'terrace-front', alt: "Het terras voor de etalage van Made's Warung", sizes: '(max-width: 760px) 100vw, 25vw' })}</figure>
+      <figure class="reveal">${img({ name: 'dessert', alt: 'Es campur-dessert in een glas met bloemetjes', sizes: '(max-width: 760px) 100vw, 25vw' })}</figure>
+    </section>
   `, 'inner-page')
 }
 
@@ -324,7 +342,7 @@ export function jobsPage() {
         <a class="btn btn-ink" href="mailto:${MAIL}?subject=Sollicitatie Made's Warung">Stuur ons een berichtje</a>
         <p class="jobs-note">Vermeld je naam en iets over jezelf — we nemen zo snel mogelijk contact met je op.</p>
       </div>
-      <figure class="page-hero-photo">${img({ name: 'duo', alt: "Twee teamleden bij de ingang van Made's Warung", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
+      <figure class="page-hero-photo">${img({ name: 'server', alt: "Medewerker van Made's Warung aan het werk achter de toonbank", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
     </section>
   `, 'inner-page')
 }
