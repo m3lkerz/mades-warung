@@ -68,7 +68,7 @@ body::after {
 }
 
 img { display: block; width: 100%; height: auto; }
-a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a { overflow-wrap: anywhere; color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
 h1, h2, h3, p, figure, blockquote, dl, dd, ul, ol { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 
@@ -439,12 +439,14 @@ p { text-wrap: pretty; }
   .mobile-nav a[aria-current='page'] { color: var(--terracotta); font-style: italic; }
   .mobile-nav p { margin-top: auto; padding-top: 24px; color: var(--ink-soft); }
 
-  .hero, .page-hero, .signatures, .story-band-inner, .catering-strip, .visit, .story-cols, .story-cols.reverse, .menu-layout, .gallery-head { grid-template-columns: 1fr; }
+  .hero, .page-hero, .signatures, .story-band-inner, .catering-strip, .visit, .story-cols, .story-cols.reverse, .menu-layout, .gallery-head { grid-template-columns: minmax(0, 1fr); }
+  .menu-layout > *, .page-hero > *, .hero > * { min-width: 0; }
+  .menu-side { max-width: 100vw; }
   .hero-media { max-width: 560px; }
   .page-hero-photo { max-height: none; aspect-ratio: 4 / 3; }
   .menu-side { position: sticky; top: var(--header-h, 72px); z-index: 5; display: block; }
   .menu-side-photo { display: none; }
-  .menu-jump { position: static; top: 72px; z-index: 5; display: flex; overflow-x: auto; background: var(--paper); padding: 8px 0; gap: 8px; margin-inline: -24px; padding-inline: 24px; }
+  .menu-jump { position: static; top: 72px; z-index: 5; display: flex; overflow-x: auto; background: var(--paper); padding: 8px 0; gap: 8px; margin-inline: calc((100vw - 100%) / -2); padding-inline: calc((100vw - 100%) / 2); scrollbar-width: none; }
   .menu-jump a { border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; white-space: nowrap; }
   .menu-cat { scroll-margin-top: 140px; }
   .story-cols.reverse figure { order: 2; }
@@ -478,4 +480,12 @@ p { text-wrap: pretty; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+dd, .contact-list a, .footer-grid a { overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .mi-row { flex-wrap: wrap; }
+  .mi-row h3 { font-size: 20px; flex: 1 1 auto; min-width: 0; }
+  .mi-dots { min-width: 16px; }
+  .menu-cat h2 { font-size: 34px; }
 }

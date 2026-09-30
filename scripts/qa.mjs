@@ -38,6 +38,16 @@ for (const route of routes) {
   await context.close()
 }
 
+for (const route of routes) {
+  const mctx = await browser.newContext({ viewport: { width: 360, height: 780 }, isMobile: true, hasTouch: true })
+  const mp = await mctx.newPage()
+  await mp.goto(`${baseURL}${route}`, { waitUntil: 'networkidle' })
+  const ov = await mp.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+  report.routes[route].mobileOverflow = ov
+  if (ov > 1) failed = true
+  await mctx.close()
+}
+
 const desktopContext = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })
 const desktop = await desktopContext.newPage()
 await desktop.goto(baseURL, { waitUntil: 'networkidle' })
