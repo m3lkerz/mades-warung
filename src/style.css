@@ -172,8 +172,8 @@ p { text-wrap: pretty; }
 .hero-facts dd { font-weight: 600; line-height: 1.4; }
 .hero-facts a { text-decoration: none; }
 .hero-media { position: relative; padding-bottom: 12%; }
-.hero-main { width: 88%; margin-left: auto; aspect-ratio: 1 / 1; overflow: hidden; border-radius: var(--radius); }
-.hero-main img { height: 100%; object-fit: cover; object-position: 42% 50%; }
+.hero-main { width: 84%; margin-left: auto; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); }
+.hero-main img { height: 100%; object-fit: cover; object-position: 50% 55%; }
 .hero-inset {
   position: absolute;
   left: 0;
