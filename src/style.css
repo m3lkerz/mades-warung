@@ -173,7 +173,7 @@ p { text-wrap: pretty; }
 .hero-facts a { text-decoration: none; }
 .hero-media { position: relative; padding-bottom: 12%; }
 .hero-main { width: 84%; margin-left: auto; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); }
-.hero-main img { height: 100%; object-fit: cover; object-position: 50% 55%; }
+.hero-main img { height: 100%; object-fit: cover; object-position: 50% 40%; }
 .hero-inset {
   position: absolute;
   left: 0;
@@ -208,7 +208,7 @@ p { text-wrap: pretty; }
 /* Signatures */
 .signatures { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 112px); align-items: center; padding-top: 0; }
 .sig-photo { aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); }
-.sig-photo img { height: 100%; object-fit: cover; object-position: 30% 50%; }
+.sig-photo img { height: 100%; object-fit: cover; object-position: 50% 50%; }
 .sig-list h2 { font-size: clamp(40px, 4.6vw, 68px); margin-bottom: 36px; }
 .sig-list ul { margin-bottom: 36px; }
 .sig-list li { display: flex; justify-content: space-between; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
@@ -239,7 +239,7 @@ p { text-wrap: pretty; }
 /* Terrace band */
 .terrace-band { position: relative; margin-bottom: clamp(72px, 10vw, 140px); }
 .terrace-photo { height: clamp(420px, 70vh, 760px); overflow: hidden; }
-.terrace-photo img { height: 100%; object-fit: cover; object-position: 50% 22%; }
+.terrace-photo img { height: 100%; object-fit: cover; object-position: 50% 28%; }
 .terrace-card {
   position: absolute;
   left: max(24px, calc((100% - 1320px) / 2));

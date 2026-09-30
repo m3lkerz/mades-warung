@@ -10,7 +10,7 @@ type Img = { name: string; alt: string; sizes?: string; priority?: boolean; cls?
 
 const PORTRAIT = { w: 1600, h: 2413 }
 const LANDSCAPE = { w: 1600, h: 1061 }
-const landscapes = new Set(['buffet', 'scoop', 'counter', 'juice', 'orchid', 'terrace', 'terrace-wide', 'interior', 'street'])
+const landscapes = new Set(['buffet', 'scoop', 'counter', 'juice', 'orchid', 'terrace', 'terrace-wide', 'interior', 'street', 'bainmarie-wide', 'table', 'tea', 'interior-view', 'terrace-sign', 'family-counter', 'counter-interior'])
 
 function img({ name, alt, sizes = '(max-width: 760px) 100vw, 50vw', priority = false, cls = '' }: Img) {
   const d = landscapes.has(name) ? LANDSCAPE : PORTRAIT
@@ -114,7 +114,7 @@ export function homePage() {
         </dl>
       </div>
       <div class="hero-media">
-        <figure class="hero-main">${img({ name: 'plate', alt: 'Nasi campur met saté lilit, groenten en sambal op een houten tafel', sizes: '(max-width: 900px) 100vw, 42vw', priority: true })}</figure>
+        <figure class="hero-main">${img({ name: 'food-hero', alt: "Handen pakken een nasi campur met kroepoek, groenten en sambal", sizes: '(max-width: 900px) 100vw, 42vw', priority: true })}</figure>
         <figure class="hero-inset">${img({ name: 'chef', alt: 'Kok schept gerechten op achter de toonbank', sizes: '(max-width: 900px) 45vw, 18vw' })}</figure>
       </div>
     </section>
@@ -131,11 +131,11 @@ export function homePage() {
         <li class="reveal"><span>02</span><h3>Wijs je lauk aan</h3><p>Ayam betutu, rendang, sambal goreng boontjes, tempé — alles vers uit de vitrine.</p></li>
         <li class="reveal"><span>03</span><h3>Sambal erbij</h3><p>Altijd met sambal goreng telor. Klein € 16,50, speciaal € 19,50.</p></li>
       </ol>
-      <figure class="how-photo reveal">${img({ name: 'buffet', alt: 'Vitrine met verse Balinese gerechten: groenten, kip, tahu en boontjes', sizes: '100vw' })}</figure>
+      <figure class="how-photo reveal">${img({ name: 'bainmarie-wide', alt: "Warme bakken met Balinese gerechten in de vitrine", sizes: '100vw' })}</figure>
     </section>
 
     <section class="signatures section">
-      <figure class="sig-photo reveal">${img({ name: 'bowl', alt: 'Nasi campur met kip, groenten en kroepoek op het terras', sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
+      <figure class="sig-photo reveal">${img({ name: 'terrace-guest', alt: 'Gast eet een bord nasi op het zonnige terras', sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
       <div class="sig-list">
         <p class="eyebrow reveal">Begin met de klassiekers</p>
         <h2 class="reveal">Wat je <em>moet</em> proeven.</h2>
@@ -154,19 +154,19 @@ export function homePage() {
       <div class="gallery-head reveal">
         <p class="eyebrow">Binnen bij Made's</p>
         <h2 id="gallery-title">Een klein stukje <em>Kuta</em> in Zuid.</h2>
-        <p>Een paar krukken aan het raam, een Balinese payung aan het plafond en altijd iets dat staat te pruttelen.</p>
+        <p>Balinese belettering op het raam, es campur met een bosje bloemen, verse kurkuma-thee en altijd iets dat staat te pruttelen.</p>
       </div>
       <div class="gallery-grid">
-        <figure class="g1 reveal">${img({ name: 'window', alt: 'Barkrukken aan het raam met Balinees schilderij', sizes: '(max-width: 760px) 50vw, 30vw' })}</figure>
-        <figure class="g2 reveal">${img({ name: 'umbrella', alt: 'Balinese ceremoniële parasol aan het plafond', sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
-        <figure class="g3 reveal">${img({ name: 'juice', alt: 'Verse jamu wordt ingeschonken aan het raam', sizes: '(max-width: 760px) 100vw, 45vw' })}</figure>
-        <figure class="g4 reveal">${img({ name: 'guest', alt: 'Gast eet aan tafel bij de toonbank', sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
-        <figure class="g5 reveal">${img({ name: 'batik', alt: "Menukaart van Made's Warung op een batikkleed", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
+        <figure class="g1 reveal">${img({ name: 'window-front', alt: "Het raam met Balinees Eten-belettering en een zitje ervoor", sizes: '(max-width: 760px) 50vw, 30vw' })}</figure>
+        <figure class="g2 reveal">${img({ name: 'es', alt: "Es campur in een glas met een vaasje bloemen", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
+        <figure class="g3 reveal">${img({ name: 'interior-view', alt: "Binnen bij Made's Warung met uitzicht op het terras", sizes: '(max-width: 760px) 100vw, 45vw' })}</figure>
+        <figure class="g4 reveal">${img({ name: 'eating', alt: "Gast geniet van een es campur aan tafel", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
+        <figure class="g5 reveal">${img({ name: 'tea', alt: "Krijtbord met verse thee: munt, gember, salie en kurkuma", sizes: '(max-width: 760px) 50vw, 22vw' })}</figure>
       </div>
     </section>
 
     <section class="terrace-band" aria-labelledby="terrace-title">
-      <figure class="terrace-photo">${img({ name: 'terrace', alt: "Vol terras met rode parasols voor Made's Warung", sizes: '100vw' })}</figure>
+      <figure class="terrace-photo">${img({ name: 'terrace-sign', alt: "Vol terras onder de rode parasols voor het uithangbord van Made's Warung", sizes: '100vw' })}</figure>
       <div class="terrace-card reveal">
         <p class="eyebrow">Ons terras</p>
         <h2 id="terrace-title">Rode parasols, <em>zon</em> en sambal.</h2>
@@ -183,7 +183,7 @@ export function homePage() {
           <p>Peter reed in 1973 met de auto van Amsterdam naar Bali en ontmoette Made in de warung van haar familie. Inmiddels telt Made's Warung vijf vestigingen op Bali — en met Kuswati en Bagus Sanou één kleine warung in Amsterdam.</p>
           <a class="link-arrow" href="${B}/our-story">Lees het hele verhaal <span aria-hidden="true">→</span></a>
         </div>
-        <figure class="story-band-photo reveal">${img({ name: 'duo', alt: "Het team van Made's Warung voor de houten voordeur", sizes: '(max-width: 900px) 100vw, 34vw' })}</figure>
+        <figure class="story-band-photo reveal">${img({ name: 'family', alt: "De familie achter Made's Warung Amsterdam in de deuropening", sizes: '(max-width: 900px) 100vw, 34vw' })}</figure>
       </div>
     </section>
 
@@ -224,7 +224,7 @@ export function menuPage() {
         <h1>Ons <em>menu</em></h1>
         <p>Van Nasi Campur tot Balinese streetfood. Kies aan de toonbank wat bij je past.</p>
       </div>
-      <figure class="page-hero-photo">${img({ name: 'buffet', alt: 'Vitrine met verse Balinese gerechten', sizes: '(max-width: 900px) 100vw, 55vw', priority: true })}</figure>
+      <figure class="page-hero-photo">${img({ name: 'table', alt: "Tafel vol Balinese gerechten, kroepoek en verse bloemen", sizes: '(max-width: 900px) 100vw, 55vw', priority: true })}</figure>
     </section>
     <section class="menu-layout section">
       <aside class="menu-side">
@@ -254,13 +254,13 @@ export function storyPage() {
         <p class="eyebrow">Ons verhaal · sinds 1973</p>
         <h1>Geboren op Bali. <em>Thuis</em> in Amsterdam.</h1>
       </div>
-      <figure class="page-hero-photo">${img({ name: 'shrine', alt: 'Balinese payung en ornamenten in de warung', sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
+      <figure class="page-hero-photo">${img({ name: 'red-umbrella', alt: "Rode Balinese payung voor het raam", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
     </section>
     <article class="long-story section">
       <p class="story-lead reveal">${storyParagraphs[0]}</p>
       <div class="story-cols">
         <div class="prose reveal">${storyParagraphs.slice(1, 3).map(p => `<p>${p}</p>`).join('')}</div>
-        <figure class="reveal">${img({ name: 'door', alt: "Het team voor de ingang van Made's Warung", sizes: '(max-width: 900px) 100vw, 40vw' })}</figure>
+        <figure class="reveal">${img({ name: 'family-counter', alt: "De familie achter Made's Warung Amsterdam bij de vitrine", sizes: '(max-width: 900px) 100vw, 40vw' })}</figure>
       </div>
       <blockquote class="reveal"><p>“Een tafel voor één of twee bestaat daar <em>niet.</em>”</p></blockquote>
       <div class="story-cols reverse">
@@ -280,7 +280,7 @@ export function cateringPage() {
         <p>Wij brengen alles in rechauds, bouwen het buffet op en halen de materialen de volgende dag weer op.</p>
         <a class="btn btn-ink" href="mailto:${MAIL}?subject=Cateringaanvraag">Vraag catering aan</a>
       </div>
-      <figure class="page-hero-photo">${img({ name: 'bainmarie', alt: 'Warme gerechten in de bain-marie, klaar om op te scheppen', sizes: '(max-width: 900px) 100vw, 55vw', priority: true })}</figure>
+      <figure class="page-hero-photo">${img({ name: 'bainmarie2', alt: "Warme gerechten in de vitrine, klaar om op te scheppen", sizes: '(max-width: 900px) 100vw, 55vw', priority: true })}</figure>
     </section>
     <section class="section">
       <h2 class="section-title reveal">Catering <em>menu.</em></h2>
@@ -322,9 +322,9 @@ export function contactPage() {
       <figure class="page-hero-photo">${img({ name: 'facade', alt: "Gevel van Made's Warung met planten en rood uithangbord", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
     </section>
     <section class="photo-strip section" aria-label="Sfeer bij Made's Warung">
-      <figure class="reveal">${img({ name: 'interior', alt: "Binnen bij Made's Warung: tafels, vitrine en krijtborden", sizes: '(max-width: 760px) 100vw, 50vw' })}</figure>
-      <figure class="reveal">${img({ name: 'terrace-front', alt: "Het terras voor de etalage van Made's Warung", sizes: '(max-width: 760px) 100vw, 25vw' })}</figure>
-      <figure class="reveal">${img({ name: 'dessert', alt: 'Es campur-dessert in een glas met bloemetjes', sizes: '(max-width: 760px) 100vw, 25vw' })}</figure>
+      <figure class="reveal">${img({ name: 'counter-interior', alt: "De toonbank en vitrine binnen bij Made's Warung", sizes: '(max-width: 760px) 100vw, 50vw' })}</figure>
+      <figure class="reveal">${img({ name: 'kroepoek', alt: "Zakken kroepoek in een houten kist", sizes: '(max-width: 760px) 100vw, 25vw' })}</figure>
+      <figure class="reveal">${img({ name: 'es2', alt: "Es campur met een vaasje gipskruid", sizes: '(max-width: 760px) 100vw, 25vw' })}</figure>
     </section>
   `, 'inner-page')
 }
@@ -342,7 +342,7 @@ export function jobsPage() {
         <a class="btn btn-ink" href="mailto:${MAIL}?subject=Sollicitatie Made's Warung">Stuur ons een berichtje</a>
         <p class="jobs-note">Vermeld je naam en iets over jezelf — we nemen zo snel mogelijk contact met je op.</p>
       </div>
-      <figure class="page-hero-photo">${img({ name: 'server', alt: "Medewerker van Made's Warung aan het werk achter de toonbank", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
+      <figure class="page-hero-photo">${img({ name: 'staff', alt: "Medewerker achter de toonbank bij Made's Warung", sizes: '(max-width: 900px) 100vw, 45vw', priority: true })}</figure>
     </section>
   `, 'inner-page')
 }
