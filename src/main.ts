@@ -76,6 +76,8 @@ function initMobileMenu() {
     const open = toggle.getAttribute('aria-expanded') === 'true'
     toggle.setAttribute('aria-expanded', String(!open))
     toggle.textContent = open ? 'Menu' : 'Sluiten'
+    const h = document.querySelector<HTMLElement>('[data-header]')?.offsetHeight ?? 72
+    document.documentElement.style.setProperty('--header-h', `${h}px`)
     nav.hidden = open
     document.body.classList.toggle('menu-open', !open)
   })

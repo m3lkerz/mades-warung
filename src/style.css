@@ -53,6 +53,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; background: var(--paper); }
 body.menu-open { overflow: hidden; }
+body.menu-open .site-header { border-bottom-color: var(--line); }
 
 /* subtle film grain over everything */
 body::after {
@@ -135,8 +136,7 @@ p { text-wrap: pretty; }
   align-items: center;
   gap: 40px;
   padding: 12px max(24px, calc((100% - 1320px) / 2));
-  background: rgb(245 237 224 / 0.92);
-  backdrop-filter: saturate(1.2) blur(10px);
+  background: var(--paper);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s;
 }
@@ -397,7 +397,13 @@ p { text-wrap: pretty; }
   }
   .mobile-nav {
     position: fixed;
-    inset: 72px 0 0;
+    top: var(--header-h, 72px);
+    left: 0;
+    right: 0;
+    height: calc(100dvh - var(--header-h, 72px));
+    overflow-y: auto;
+    z-index: 60;
+    border-top: 1px solid var(--line);
     background: var(--paper);
     display: flex;
     flex-direction: column;
@@ -406,7 +412,7 @@ p { text-wrap: pretty; }
   }
   .mobile-nav a { font-family: var(--display); font-size: 40px; text-decoration: none; padding: 6px 0; border-bottom: 1px solid var(--line); }
   .mobile-nav a[aria-current='page'] { color: var(--terracotta); font-style: italic; }
-  .mobile-nav p { margin-top: auto; color: var(--ink-soft); }
+  .mobile-nav p { margin-top: auto; padding-top: 24px; color: var(--ink-soft); }
 
   .hero, .page-hero, .signatures, .story-band-inner, .catering-strip, .visit, .story-cols, .story-cols.reverse, .menu-layout, .gallery-head { grid-template-columns: 1fr; }
   .hero-media { max-width: 560px; }
