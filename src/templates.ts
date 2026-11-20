@@ -115,6 +115,11 @@ export function homePage() {
       </div>
       <div class="hero-media">
         <figure class="hero-main">${img({ name: 'plate-wood', alt: "Nasi campur met saté lilit, rendang, groenten en sambal op een houten tafel", sizes: '(max-width: 900px) 100vw, 42vw', priority: true })}</figure>
+        <div class="hero-glass">
+          <p>Vandaag eten?</p>
+          <strong>12:00–20:00</strong>
+          <a href="${TEL}">Bel &amp; bestel</a>
+        </div>
         <figure class="hero-inset">${img({ name: 'chef-counter', alt: "Kok achter de vitrine van Made's Warung", sizes: '(max-width: 900px) 45vw, 18vw' })}</figure>
       </div>
     </section>
